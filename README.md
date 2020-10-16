@@ -1,7 +1,7 @@
 
 # Modular Magic
 
-[![YourActionName Actions Status](https://github.com/DirkHeijnen/krul_interpreter/ci/badge.svg)](https://github.com/DirkHeijnen/krul_interpreter/actions)
+[![YourActionName Actions Status](https://github.com/DirkHeijnen/krul_interpreter/workflows/ci/badge.svg)](https://github.com/DirkHeijnen/krul_interpreter/actions)
 
 
 ## Features
