@@ -8,7 +8,7 @@
 class KrulProgram
 {
     public:
-        void load(std::string input);
+        void load(const std::string& input);
         void preprocess();
         void execute();
 

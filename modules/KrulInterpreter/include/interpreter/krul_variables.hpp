@@ -7,8 +7,8 @@
 class KrulVariables
 {
     public:
-        std::string get(std::string variableName) const;
-        void set(std::string variableName, std::string variableValue);
+        std::string get(const std::string& variableName) const;
+        void set(const std::string& variableName, const std::string& variableValue);
 
     private:
         std::map<std::string, std::string> variables;

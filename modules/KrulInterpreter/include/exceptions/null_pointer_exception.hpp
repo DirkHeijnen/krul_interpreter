@@ -6,7 +6,7 @@
 class NullPointerException final : public KrulException
 {
     public:
-        explicit NullPointerException(const std::string& message, const std::string & reason) : KrulException(message, reason) { }
+        explicit NullPointerException(const std::string& reason) : KrulException("Null pointer exception", reason) { }
 };
 
 #endif //CPP1_EINDOPDRACHT_NULL_POINTER_EXCEPTION_HPP

@@ -1,7 +1,7 @@
 #include "interpreter/krul_memory.hpp"
 #include "exceptions/krul_exceptions.hpp"
 
-const std::string KrulMemory::getCurrentInstruction() const
+std::string KrulMemory::getCurrentInstruction() const
 {
     if (this->instructionIndex > this->instructions.size())
     {

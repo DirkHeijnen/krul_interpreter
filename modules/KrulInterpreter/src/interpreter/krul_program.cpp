@@ -3,7 +3,7 @@
 #include <iostream>
 #include <sstream>
 
-void KrulProgram::load(std::string input)
+void KrulProgram::load(const std::string& input)
 {
     std::stringstream instructionStream(input);
 

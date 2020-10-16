@@ -7,15 +7,15 @@
 class KrulException : public std::runtime_error
 {
     public:
-        KrulException(const std::string &message, const std::string &reason)
+        KrulException(const std::string& message, const std::string& reason)
                 : runtime_error(message), message(message), reason(reason) { }
 
-        const std::string getReason() const
+        std::string getReason() const
         {
             return this->reason;
         }
 
-        const std::string getMessage() const
+        std::string getMessage() const
         {
             return this->message;
         }
