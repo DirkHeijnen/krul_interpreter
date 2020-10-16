@@ -1,0 +1,37 @@
+name: ci
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build-windows:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Install Python
+        uses: actions/setup-python@v1
+
+      - name: Install dependencies
+        run: |
+          pip install conan
+
+      - name: Configure
+        run: |
+          conan remote add bincrafters https://api.bintray.com/conan/bincrafters/public-conan
+
+      - name: Build
+        run: |
+          mkdir build
+          cd build
+          conan install .. --build=missing
+          cmake -DCMAKE_BUILD_TYPE=Debug -DENABLE_TESTING=ON ..
+          cmake --build .
+
+      - name: Test
+        run:
+          |
+          ctest -C Debug
