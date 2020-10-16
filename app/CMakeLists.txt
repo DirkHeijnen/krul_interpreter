@@ -12,6 +12,7 @@ cmake_minimum_required(VERSION 3.12...3.18)
 ### - Only need to include main.cpp                                                              ###
 ### - Set the c++ standard to 17.                                                                ###
 ### - Link the http_client library for internal use only (PRIVATE).                              ###
+### - Link the krul_interpreter library for internal use only (PRIVATE).                         ###
 ####################################################################################################
 set(EXECUTABLE_NAME ${APPLICATION_NAME})
 add_executable(${EXECUTABLE_NAME} main.cpp)
