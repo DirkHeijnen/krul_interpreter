@@ -76,8 +76,3 @@ TEST_F(IdxCommandTests, idx_with_nothing)
     // Assert
     ASSERT_THROW(krulProgram.execute(), IndexOutOfRangeException);
 }
-
-TEST_F(IdxCommandTests, idx_with_index_out_of_range)
-{
-    // todo: Throw exception
-}

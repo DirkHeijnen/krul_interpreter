@@ -77,23 +77,3 @@ TEST_F(GgeCommandTests, gge_less_does_not_jump)
     // Assert
     ASSERT_EQ(7, krulProgram.memory.getInstructionIndex());
 }
-
-TEST_F(GgeCommandTests, gge_with_string_as_argument)
-{
-    // Todo: Throw exception.
-}
-
-TEST_F(GgeCommandTests, gge_non_existing_position)
-{
-    // Todo: Throw exception.
-}
-
-TEST_F(GgeCommandTests, gge_with_negative_number)
-{
-    // Todo: Throw exception.
-}
-
-TEST_F(GgeCommandTests, gge_with_no_argument)
-{
-    // Todo: Throw exception.
-}

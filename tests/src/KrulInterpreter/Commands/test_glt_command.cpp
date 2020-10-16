@@ -77,23 +77,3 @@ TEST(GltCommandTests, glt_less_does_jump)
     // Assert
     ASSERT_EQ(6, krulProgram.memory.getInstructionIndex());
 }
-
-TEST(GltCommandTests, glt_with_string_as_argument)
-{
-    // Todo: Throw exception.
-}
-
-TEST(GltCommandTests, glt_non_existing_position)
-{
-    // Todo: Throw exception.
-}
-
-TEST(GltCommandTests, glt_with_negative_number)
-{
-    // Todo: Throw exception.
-}
-
-TEST(GltCommandTests, glt_with_no_argument)
-{
-    // Todo: Throw exception.
-}
