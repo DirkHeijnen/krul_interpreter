@@ -1,5 +1,5 @@
 
-# Modular Magic
+# Kurl Interpreter
 
 [![YourActionName Actions Status](https://github.com/DirkHeijnen/krul_interpreter/workflows/ci/badge.svg)](https://github.com/DirkHeijnen/krul_interpreter/actions)
 
