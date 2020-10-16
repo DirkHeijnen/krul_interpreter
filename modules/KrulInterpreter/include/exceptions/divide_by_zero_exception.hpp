@@ -6,7 +6,7 @@
 class DivideByZeroException final : public KrulException
 {
     public:
-        explicit DivideByZeroException(const std::string & reason) : KrulException("Divide by zero error", reason) { }
+        explicit DivideByZeroException(const std::string& reason) : KrulException("Divide by zero error", reason) { }
 };
 
 #endif //CPP1_EINDOPDRACHT_DIVIDE_BY_ZERO_EXCEPTION_HPP

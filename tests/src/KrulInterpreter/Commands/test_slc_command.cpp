@@ -64,8 +64,3 @@ TEST_F(SlcCommandTests, slc_with_nothing)
     // Assert
     ASSERT_THROW(krulProgram.execute(), IndexOutOfRangeException);
 }
-
-TEST_F(SlcCommandTests, slc_where_from_is_bigger_than_to)
-{
-    // todo: Throw exception
-}

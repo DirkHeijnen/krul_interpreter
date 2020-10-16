@@ -44,6 +44,11 @@ std::string KrulStack::readString() const
 
 int KrulStack::readInt() const
 {
+    if (stack.empty())
+    {
+        throw IndexOutOfRangeException("Expected int, but stack was empty!");
+    }
+
     try
     {
         return std::stoi(stack.top());
@@ -54,7 +59,7 @@ int KrulStack::readInt() const
     }
 }
 
-void KrulStack::push(std::string value)
+void KrulStack::push(const std::string& value)
 {
     stack.push(value);
 }

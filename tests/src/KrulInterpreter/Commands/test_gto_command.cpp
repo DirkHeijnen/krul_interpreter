@@ -35,18 +35,3 @@ TEST_F(GtoCommandTests, gto_request_with_number)
     // Assert
     ASSERT_EQ(3, krulProgram.memory.getInstructionIndex());
 }
-
-TEST_F(GtoCommandTests, gto_non_existing_position)
-{
-    // Todo: Throw exception.
-}
-
-TEST_F(GtoCommandTests, gto_with_negative_number)
-{
-    // Todo: Throw exception.
-}
-
-TEST_F(GtoCommandTests, gto_with_no_argument)
-{
-    // Todo: Throw exception.
-}

@@ -11,7 +11,7 @@ class KrulStack
         std::string readString() const;
         int takeInt();
         int readInt() const;
-        void push(std::string value);
+        void push(const std::string& value);
         void push(int value);
 
     private:

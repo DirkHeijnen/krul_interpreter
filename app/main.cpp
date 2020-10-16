@@ -1,8 +1,8 @@
 #include <iostream>
 #include <string>
 
-#include <Krul.hpp>
-#include <HttpClient.hpp>
+#include "Krul.hpp"
+#include "HttpClient.hpp"
 
 void writeBanner(int challengeNumber, const std::string& url)
 {

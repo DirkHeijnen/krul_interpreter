@@ -63,23 +63,3 @@ TEST_F(GneCommandTests, gne_not_equal_does_jump)
     // Assert
     ASSERT_EQ(7, krulProgram.memory.getInstructionIndex());
 }
-
-TEST_F(GneCommandTests, gne_with_string_as_argument)
-{
-    // Todo: Throw exception.
-}
-
-TEST_F(GneCommandTests, gne_non_existing_position)
-{
-    // Todo: Throw exception.
-}
-
-TEST_F(GneCommandTests, gne_with_negative_number)
-{
-    // Todo: Throw exception.
-}
-
-TEST_F(GneCommandTests, gne_with_no_argument)
-{
-    // Todo: Throw exception.
-}
