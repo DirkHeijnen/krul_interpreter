@@ -1,16 +1,12 @@
 #include "commands/rot_command.hpp"
-#include <iostream>
 
 void RotCommand::execute()
 {
-    std::string first = this->memory.stack->takeString();
+    const std::string first = this->memory.stack->takeString();
 
-    std::string result = this->ROT13(first);
+    const std::string result = this->ROT13(first);
 
     this->memory.stack->push(result);
-
-    std::cout << "Instruction " << this->memory.getInstructionIndex() << " : ";
-    std::cout << "[ROT]: Taking from stack [ " << first << " ] and inserting on stack: [ " << result << " ]" << std::endl;
 }
 
 std::string RotCommand::ROT13(std::string source)

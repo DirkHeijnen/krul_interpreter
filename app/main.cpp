@@ -1,3 +1,5 @@
+// #include <crtdbg.h>
+
 #include <iostream>
 #include <string>
 
@@ -11,12 +13,11 @@ void writeBanner(int challengeNumber, const std::string& url)
     std::cout << "//////            CHALLENGE " << challengeNumber << "               ///////" << std::endl;
     std::cout << "//////                                      ///////" << std::endl;
     std::cout << "///////////////////////////////////////////////////" << std::endl;
-    std::cout << "URL: " << url << std::endl << std::endl;
+    std::cout << "URL: " << url << std::endl;
 }
 
-KrulProgram doChallenge(const std::string& fileName, int num)
+KrulProgram doChallenge(const std::string& fileName, int num, HttpClient& client)
 {
-    HttpClient client = HttpClient();
     const std::string baseUrl = "https://student.aii.avans.nl/doc/rpbpolis1/cpp1/";
     HttpResponse response = client.get(baseUrl + fileName);
 
@@ -25,7 +26,14 @@ KrulProgram doChallenge(const std::string& fileName, int num)
     krul.load(response.body);
     krul.execute();
 
-    std::cout << std::endl << "Solution: " << krul.memory.stack->readString() << std::endl << std::endl << std::endl;
+    if (krul.isFinished)
+    {
+        std::cout << "Solution: " << krul.memory.stack->readString() << std::endl << std::endl;
+    }
+    else
+    {
+        std::cout << "Next file url: " << krul.memory.stack->readString() << std::endl << std::endl;
+    }
 
     return krul;
 }
@@ -34,23 +42,25 @@ int main(int argc, char* argv[])
 {
     try
     {
-        int challenge = 0;
-        std::string fileName = "start.txt";
+        HttpClient client = HttpClient();
 
-        KrulProgram program = doChallenge(fileName, challenge);
+        int challenge = 1;
+        std::string fileName = "start.txt";
+        KrulProgram program = doChallenge(fileName, challenge, client);
+
         while (!program.isFinished)
         {
             challenge++;
             fileName = program.memory.stack->readString();
-            program = doChallenge(fileName, challenge);
+            program = doChallenge(fileName, challenge, client);
         }
-
-        std::cout << "You're finished!" << std::endl;
     }
     catch (KrulException& e)
     {
         std::cout << "Caught error: " << e.getMessage() << " : " << e.getReason() << std::endl;
     }
 
+
+    // _CrtDumpMemoryLeaks();
     return 0;
 }

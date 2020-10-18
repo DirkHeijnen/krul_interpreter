@@ -18,7 +18,7 @@ set(TEST_EXECUTABLE_NAME cpp1_eindopdracht_tests)
 
 ####################################################################################################
 ### Using CMake 3.12+ GLOB feature for finding source files                                      ###
-### Create the tests executable with the modules included to tests them                            ###
+### Create the tests executable with the modules included to tests them                          ###
 ####################################################################################################
 file(GLOB_RECURSE TEST_SOURCES CONFIGURE_DEPENDS ./src/*.cpp)
 add_executable(${TEST_EXECUTABLE_NAME} ${TEST_SOURCES})

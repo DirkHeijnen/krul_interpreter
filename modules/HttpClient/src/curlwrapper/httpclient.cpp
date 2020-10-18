@@ -1,15 +1,14 @@
 #include "curlwrapper/httpclient.hpp"
 
-#include <curl/curl.h>
-#include <memory>
+HttpClient::HttpClient()
+{
+    curl.reset(curl_easy_init());
+}
 
 HttpResponse HttpClient::get(const std::string &url)
 {
-    std::unique_ptr<CURL, decltype(&curl_easy_cleanup)> curl(curl_easy_init(), curl_easy_cleanup);
-
     // Response containers
     std::string responseBody;
-    char* contentType;
     long statusCode = 0;
 
     // Setup the request
@@ -25,8 +24,8 @@ HttpResponse HttpClient::get(const std::string &url)
     curl_easy_perform(curl.get());
 
     // Get data from the result
-    curl_easy_getinfo(curl.get(), CURLINFO_CONTENT_TYPE, &contentType);
     curl_easy_getinfo (curl.get(), CURLINFO_RESPONSE_CODE, &statusCode);
+
 
     return HttpResponse(HttpStatusCode(statusCode), responseBody);
 }

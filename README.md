@@ -3,7 +3,7 @@
 [![YourActionName Actions Status](https://github.com/DirkHeijnen/krul_interpreter/workflows/ci/badge.svg)](https://github.com/DirkHeijnen/krul_interpreter/actions)
 
 
-This is a school project for Avans University in which an interpreter is build for an assembly like language.
+This is a school project for Avans University in which an interpreter is build for an assembly like language named krul.
 
 ## Features
 
