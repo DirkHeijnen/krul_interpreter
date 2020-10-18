@@ -1,6 +1,5 @@
 #include "interpreter/krul_program.hpp"
 #include "exceptions/krul_exceptions.hpp"
-#include <iostream>
 #include <sstream>
 
 void KrulProgram::load(const std::string& input)
@@ -19,11 +18,10 @@ void KrulProgram::preprocess()
 {
     for (this->memory.instructionIndex = 0; this->memory.instructionIndex < this->memory.instructions.size(); this->memory.instructionIndex++)
     {
-        const std::string& instruction = this->memory.getCurrentInstruction();
+        const std::string instruction = this->memory.getCurrentInstruction();
 
         if (instruction[0] == ':')
         {
-            std::cout << "PREPROCESSING: ";
             SetLabelCommand(this->memory).execute();
         }
     }
@@ -31,20 +29,17 @@ void KrulProgram::preprocess()
 
 void KrulProgram::execute()
 {
-    std::cout << std::endl;
-
     for (this->memory.instructionIndex = 0; this->memory.instructionIndex < this->memory.instructions.size(); this->memory.instructionIndex++)
     {
         // The current instruction
-        std::string instruction = this->memory.getCurrentInstruction();
-
-        if (instruction[0] == ':') { continue; }
+        const std::string instruction = this->memory.getCurrentInstruction();
 
         // Values & Types
         if (std::isdigit(instruction[0])) { AddDigitCommand(memory).execute(); continue; }
         if (instruction[0] == '\\') { AddStringCommand(memory).execute(); continue; }
         if (instruction[0] == '=') { SetVariableCommand(memory).execute(); continue; }
         if (instruction[0] == '$') { GetVariableCommand(memory).execute(); continue;}
+        if (instruction[0] == ':') { continue; }
         if (instruction[0] == '>') { GetLabelCommand(memory).execute(); continue; }
 
         // Integer operations
@@ -84,6 +79,7 @@ void KrulProgram::execute()
         // End
         if (instruction == "end") { this->isFinished = true; continue; }
 
+        // All other instructions
         throw NoSuchMethodException("The instruction [" + instruction + "] is not linked to an existing operation");
     }
 }

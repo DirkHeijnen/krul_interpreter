@@ -8,7 +8,7 @@ std::string KrulStack::takeString()
         throw IndexOutOfRangeException("Expected string, but stack was empty!");
     }
 
-    std::string top = stack.top();
+    const std::string top = stack.top();
     stack.pop();
     return top;
 }

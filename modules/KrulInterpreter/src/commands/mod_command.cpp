@@ -1,5 +1,4 @@
 #include "commands/mod_command.hpp"
-#include <iostream>
 #include "exceptions/krul_exceptions.hpp"
 
 void ModCommand::execute()
@@ -15,7 +14,4 @@ void ModCommand::execute()
     int result = second % first;
 
     this->memory.stack->push(result);
-
-    std::cout << "Instruction " << this->memory.getInstructionIndex() << " : ";
-    std::cout << "[MOD]: Taking from stack [ " << first << " ] and [ " << second << " ] and inserting on stack: [ " << result << " ]" << std::endl;
 }

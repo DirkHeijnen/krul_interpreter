@@ -1,15 +1,9 @@
 #include "commands/set_variable_command.hpp"
-#include <iostream>
 
 void SetVariableCommand::execute()
 {
-    std::string top = this->memory.getCurrentInstruction();
-    std::string variableName = top.erase(0, 1);
+    const std::string variable = this->memory.getCurrentInstruction().erase(0, 1);
+    const std::string variableValue = this->memory.stack->takeString();
 
-    std::string variableValue = this->memory.stack->takeString();
-
-    this->memory.variables->set(variableName, variableValue);
-
-    std::cout << "Instruction " << this->memory.getInstructionIndex() << " : ";
-    std::cout << "[=]: Setting variable [ " << variableName << " ] to : [ " << variableValue << " ]" << std::endl;
+    this->memory.variables->set(variable, variableValue);
 }

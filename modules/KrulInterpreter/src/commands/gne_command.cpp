@@ -1,14 +1,10 @@
 #include "commands/gne_command.hpp"
-#include <iostream>
 
 void GneCommand::execute()
 {
     int index = this->memory.stack->takeInt();
-    int value2 = this->memory.stack->takeInt();
-    int value1 = this->memory.stack->takeInt();
-
-    std::cout << "Instruction " << this->memory.getInstructionIndex() << " : ";
-    std::cout << "[GNE]: If [ " << value1 << " ] != [ " << value2 << " ] go to: [ " << index << " ] else go to: [ " << this->memory.getInstructionIndex() << " ]" << std::endl;
+    const std::string value2 = this->memory.stack->takeString();
+    const std::string value1 = this->memory.stack->takeString();
 
     if (value1 != value2)
     {

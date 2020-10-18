@@ -1,14 +1,9 @@
 #include "commands/get_variable_command.hpp"
-#include <iostream>
 
 void GetVariableCommand::execute()
 {
-    std::string top = this->memory.getCurrentInstruction();
-    std::string variableName = top.erase(0, 1);
-    std::string variableValue = this->memory.variables->get(variableName);
+    const std::string variable = this->memory.getCurrentInstruction().erase(0, 1);
+    const std::string variableValue = this->memory.variables->get(variable);
 
     this->memory.stack->push(variableValue);
-
-    std::cout << "Instruction " << this->memory.getInstructionIndex() << " : ";
-    std::cout << "[$]: Setting variable value of [ " << variableName << " ] on stack: [ " << variableValue << " ]" << std::endl;
 }
